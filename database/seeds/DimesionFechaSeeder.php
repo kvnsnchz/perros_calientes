@@ -18,7 +18,7 @@ class DimensionFechaSeeder extends Seeder
         $intervalo = new DateInterval('P1D'); 
     
         $end = new DateTime('2019-12-31'); 
-        $end->add($interval); 
+        $end->add($intervalo); 
     
         $periodo = new DatePeriod(new DateTime('2019-01-01'), $intervalo, $end); 
     
@@ -40,8 +40,8 @@ class DimensionFechaSeeder extends Seeder
             DB::table('dimension_fechas')->insert([
                 'id'  =>  (int) ($fecha->format('Ymd') . '1'),
                 'fecha'     =>  $fecha->format('Y-m-d'),
-                'dia'       =>  dia($fecha->format('D')),
-                'mes'       =>  mes($fecha->format('M')),
+                'dia'       =>  $this->dia($fecha->format('D')),
+                'mes'       =>  $this->mes($fecha->format('M')),
                 'año'       =>  $fecha->format('Y'),
                 'segmento'  =>  'Mañana'
             ]);
@@ -49,17 +49,18 @@ class DimensionFechaSeeder extends Seeder
             DB::table('dimension_fechas')->insert([
                 'id'  =>  (int) ($fecha->format('Ymd') . '2'),
                 'fecha'     =>  $fecha->format('Y-m-d'),
-                'dia'       =>  dia($fecha->format('D')),
-                'mes'       =>  mes($fecha->format('M')),
+                'dia'       =>  $this->dia($fecha->format('D')),
+                'mes'       =>  $this->mes($fecha->format('M')),
                 'año'       =>  $fecha->format('Y'),
                 'segmento'  =>  'Tarde'
             ]);
 
-            DB::table('dimension_fechas')->insert([
+            DB::table('dimens
+            where pedido.fecha >= inicio and pedido.fecha <= finion_fechas')->insert([
                 'id'  =>  (int) ($fecha->format('Ymd') . '3'),
                 'fecha'     =>  $fecha->format('Y-m-d'),
-                'dia'       =>  dia($fecha->format('D')),
-                'mes'       =>  mes($fecha->format('M')),
+                'dia'       =>  $this->dia($fecha->format('D')),
+                'mes'       =>  $this->mes($fecha->format('M')),
                 'año'       =>  $fecha->format('Y'),
                 'segmento'  =>  'Noche'
             ]);
