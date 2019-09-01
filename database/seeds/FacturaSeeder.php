@@ -24,7 +24,7 @@ class FacturaSeeder extends Seeder
 
         for ($i=0; $i < 7; $i++) { 
 
-            $facturas = rand(1000, 3000);
+            $facturas = rand(100, 300);
 
             for ($j=0; $j < $facturas; $j++) { 
                 $dia_inicio = strtotime(Carbon::now()->subDays(7 - $i)->format('Y-m-d'));
