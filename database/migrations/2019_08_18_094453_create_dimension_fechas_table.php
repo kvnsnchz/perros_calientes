@@ -15,8 +15,7 @@ class CreateDimensionFechasTable extends Migration
     {
         Schema::create('dimension_fechas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('fecha_id')->nullable();
-            $table->timestamp('fecha')->nullable();
+            $table->dateTime('fecha')->nullable();
             $table->string('dia')->nullable();
             $table->string('mes')->nullable();
             $table->string('año')->nullable();

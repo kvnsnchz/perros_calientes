@@ -55,8 +55,7 @@ class DimensionFechaSeeder extends Seeder
                 'segmento'  =>  'Tarde'
             ]);
 
-            DB::table('dimens
-            where pedido.fecha >= inicio and pedido.fecha <= finion_fechas')->insert([
+            DB::table('dimension_fechas')->insert([
                 'id'  =>  (int) ($fecha->format('Ymd') . '3'),
                 'fecha'     =>  $fecha->format('Y-m-d'),
                 'dia'       =>  $this->dia($fecha->format('D')),
